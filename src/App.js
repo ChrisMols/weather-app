@@ -31,7 +31,8 @@ function App() {
   };
 
   const fetchWeatherData = (searchQuery) => {
-    fetch(`${api.base}/weather?q=${query}&units=metric&appid=${api.key}`)
+    const encodedQuery = encodeURIComponent (searchQuery);
+    fetch(`${api.base}/weather?q=${encodedQuery}&units=metric&appid=${api.key}`)
       .then((response) => response.json())
       .then((data) => {
         setWeather(data);
