@@ -27,17 +27,17 @@ function App() {
   };
 
   const handleSearch = () => {
-    fetchWeatherData();
+    fetchWeatherData(query);
   };
 
-  const fetchWeatherData = () => {
+  const fetchWeatherData = (searchQuery) => {
     fetch(`${api.base}/weather?q=${query}&units=metric&appid=${api.key}`)
       .then((response) => response.json())
       .then((data) => {
         setWeather(data);
         setQuery('');
 
-        const updatedSearches = [query, ...recentSearches.slice(0, 4)];
+        const updatedSearches = [searchQuery, ...recentSearches.slice(0, 4)];
         setRecentSearches(updatedSearches);
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ function App() {
 
   const handleRecentSearch = (searchQuery) => {
     setQuery(searchQuery);
-    fetchWeatherData();
+    fetchWeatherData(searchQuery);
   };
 
   return (
