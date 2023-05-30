@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import './App.css';
 
 const api = {
@@ -12,9 +13,9 @@ function App() {
   const [recentSearches, setRecentSearches] = useState([]);
 
   useEffect(() => {
-    const storedSearches = localStorage.getItem('recentSearches');
-    if (storedSearches) {
-      setRecentSearches(JSON.parse(storedSearches));
+    const storedRecentSearches = Cookies.get('recentSearches');
+    if (storedRecentSearches) {
+      setRecentSearches(JSON.parse(storedRecentSearches));
     }
   }, []);
 
@@ -27,8 +28,16 @@ function App() {
   };
 
   const handleSearch = () => {
-    fetchWeatherData(query);
+    if (query) {
+      const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
+      setRecentSearches(updatedRecentSearches);
+      Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7 });
+      
+      setQuery(''); // Clear the search input field
+      fetchWeatherData(query); // Fetch weather data immediately after updating recent searches and query
+    }
   };
+  
 
   const fetchWeatherData = (searchQuery) => {
     const encodedQuery = encodeURIComponent (searchQuery);
