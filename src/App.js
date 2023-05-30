@@ -12,7 +12,6 @@ function App() {
   const [recentSearches, setRecentSearches] = useState([]);
 
   useEffect(() => {
-    // Load recent searches from local storage on component mount
     const storedSearches = localStorage.getItem('recentSearches');
     if (storedSearches) {
       setRecentSearches(JSON.parse(storedSearches));
@@ -20,7 +19,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Save recent searches to local storage whenever it changes
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
   }, [recentSearches]);
 
@@ -39,7 +37,6 @@ function App() {
         setWeather(data);
         setQuery('');
 
-        // Add the search query to recent searches
         const updatedSearches = [query, ...recentSearches.slice(0, 4)];
         setRecentSearches(updatedSearches);
       })
@@ -83,7 +80,7 @@ function App() {
           </div>
         )}
 
-        {weather && (
+        {weather && weather.main &&(
           <div>
             <h2>{weather.name}</h2>
             <p>Temperature: {weather.main.temp}°C</p>
@@ -96,5 +93,6 @@ function App() {
 }
 
 export default App;
+
 
 
