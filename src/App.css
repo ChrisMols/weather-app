@@ -182,6 +182,11 @@ ul{
   max-width: 100%;
 }
 
+.app-weather-result {
+font-family: "JetBrains Mono",monospace;
+}
+
+
 
 /*Responsive CSS*/
 

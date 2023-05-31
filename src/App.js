@@ -100,7 +100,7 @@ function App() {
         )}
 
         {weather && weather.main &&(
-          <div>
+          <div className="app-weather-result">
             <h2>{weather.name}</h2>
             <p>Temperature: {weather.main.temp}°C</p>
             <p>Condition: {weather.weather[0].description}</p>
