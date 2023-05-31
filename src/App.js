@@ -27,6 +27,12 @@ function App() {
     setQuery(event.target.value);
   };
 
+  const handleKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
   const handleSearch = () => {
     if (query) {
       const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
@@ -62,18 +68,22 @@ function App() {
     fetchWeatherData(searchQuery);
   };
 
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Weather App</h1>
 
-        <input className="app-input"
-          type="text"
-          placeholder="Search..."
-          value={query}
-          onChange={handleInputChange}
-        />
-        <button className="App-search-button " onClick={handleSearch}>Search</button>
+        <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input className="app-input"
+            type="text"
+            placeholder="What city are you looking for?"
+            value={query}
+            onChange={handleInputChange}
+            onKeyUp={handleKeyUp}
+          />
+        </div>
 
         {recentSearches.length > 0 && (
           <div>
