@@ -75,7 +75,6 @@ function App() {
         <h1>Weather App</h1>
 
         <div class="search-box">
-          <button class="btn-search"><i class="fas fa-search"></i></button>
           <input className="app-input"
             type="text"
             placeholder="What city are you looking for?"
