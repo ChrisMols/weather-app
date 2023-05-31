@@ -95,6 +95,7 @@ function App() {
             <h2>{weather.name}</h2>
             <p>Temperature: {weather.main.temp}°C</p>
             <p>Condition: {weather.weather[0].description}</p>
+            <p>Feels Like: {weather.main.feels_like}°C</p>
           </div>
         )}
       </header>
