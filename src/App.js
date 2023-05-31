@@ -10,7 +10,7 @@ const api = {
 function SearchBox({ query, handleInputChange, handleKeyUp}) {
   return (
     <div className="search-box">
-      <iput className="app-input" type="text" placeholder="What city are you looking for?"
+      <input className="app-input" type="text" placeholder="What city are you looking for?"
       value={query}
       onChange={handleInputChange}
       onKeyUp={handleKeyUp}
@@ -19,6 +19,34 @@ function SearchBox({ query, handleInputChange, handleKeyUp}) {
   )
 }
 
+function WeatherResult({ weather }) {
+  return (
+    <div className="app-weather-result">
+      <h2>{weather.name}</h2>
+      <p>Temperature: {weather.main.temp}°C</p>
+      <p>Condition: {weather.weather[0].description}</p>
+      <p>Feels Like: {weather.main.feels_like}°C</p>
+    </div>
+  )
+}
+
+function RecentSearches({recentSearches, handleRecentSearch}) {
+  return (
+    <div className="recent-searches-container">
+      <h2>Recent Searches:</h2>
+      <ul>
+        {recentSearches.map((searchQuery, index) => (
+          <li className="app-recent-search-li" key={index}>
+            <button className="App-recent-search-button" 
+            onClick={() => handleRecentSearch(searchQuery)}>
+              {searchQuery}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 function App() {
   const [query, setQuery] = useState('');
