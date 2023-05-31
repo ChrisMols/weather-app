@@ -67,21 +67,21 @@ function App() {
       <header className="App-header">
         <h1>Weather App</h1>
 
-        <input
+        <input className="app-input"
           type="text"
           placeholder="Search..."
           value={query}
           onChange={handleInputChange}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="App-search-button " onClick={handleSearch}>Search</button>
 
         {recentSearches.length > 0 && (
           <div>
             <h2>Recent Searches:</h2>
             <ul>
               {recentSearches.map((searchQuery, index) => (
-                <li key={index}>
-                  <button onClick={() => handleRecentSearch(searchQuery)}>
+                <li className="app-recent-search-li" key={index}>
+                  <button className="App-recent-search-button" onClick={() => handleRecentSearch(searchQuery)}>
                     {searchQuery}
                   </button>
                 </li>

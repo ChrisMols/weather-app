@@ -28,6 +28,39 @@
   color: #61dafb;
 }
 
+.App-search-button {
+  background-color: #5e665f; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.App-recent-search-button {
+  background-color: #5e665f; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.app-recent-search-li {
+list-style:none;
+float: left;
+margin-left: 5px;
+}
+
+/* .app-input{
+
+  }
+*/ 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
