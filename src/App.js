@@ -19,10 +19,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-  }, [recentSearches]);
-
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
