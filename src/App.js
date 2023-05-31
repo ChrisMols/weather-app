@@ -85,7 +85,7 @@ function App() {
         </div>
 
         {recentSearches.length > 0 && (
-          <div>
+          <div className="recent-searches-container">
             <h2>Recent Searches:</h2>
             <ul>
               {recentSearches.map((searchQuery, index) => (
