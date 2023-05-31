@@ -23,7 +23,7 @@
 
 .app-input {
   height: 30px;
-  width: 25px;
+  width: 400px;
   border-style: none;
   padding: 10px;
   font-size: 18px;
@@ -186,3 +186,39 @@ ul{
 /*Responsive CSS*/
 
 /*Breakpoints for Mobile*/
+@media screen and (max-width: 767px){
+  .app-input{
+    width: 25px;
+  }
+
+
+  .app-recent-search-ul{
+    display: block;
+  }
+
+  .app-recent-search-li{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/*Breakpoints for Tablet*/
+@media screen and (min-width: 767px) and (max-width: 991px) {
+
+  .app-input{
+    width: 200px;
+  }
+    
+  .app-recent-search-li{
+    text-align: left;
+    font-size: 16px;
+  }
+} 
+  
+/*Breakpoints for Desktop*/
+@media screen and (min-width: 992x){
+  .app-input{
+    width: 400px;
+  }
+} 
