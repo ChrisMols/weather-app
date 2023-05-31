@@ -183,7 +183,14 @@ ul{
 }
 
 .app-weather-result {
-font-family: "JetBrains Mono",monospace;
+  font-family: "JetBrains Mono",monospace;
+  background-color: white;
+  padding: 20px;
+  border-radius: 25px;
+  margin-top: 10px;
+  opacity: 0.8;
+  
+
 }
 
 
@@ -205,6 +212,10 @@ font-family: "JetBrains Mono",monospace;
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
+  }
+
+  .app-weather-result{
+    width: 75%;
   }
 }
 
