@@ -8,6 +8,10 @@ Vi har även implementerat en karta så att användaren ser vilken stads tempera
 Vi valde react framför Vue och Angular för vi är bekanta med det sen tidigare.
 Det fanns en väldigt stor community med mycket dokumentation vid problem.
 Känt för att bygga gränssnitt.
+React är även känt för att vara minimalstiskt och vi tyckte att de passade utifrån vad vi tänkte bygga.
+
+React använder även Virtual Dom som förbättrar prestandan och gör det effektivare under utvecklingen.
+
 
 Install Requirements.
 In order to run our app you might need run the following command in the terminal.
