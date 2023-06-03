@@ -22,7 +22,7 @@ function SearchBox({ query, handleInputChange, handleKeyUp}) {
 function WeatherResult({ weather }) {
   return (
     <div className="app-weather-result">
-      <h2>{weather.name}</h2>
+      <h2>{weather.name}, {weather.sys.country}</h2>
       <p>Temperature: {weather.main.temp}°C</p>
       <p>Condition: {weather.weather[0].description}</p>
       <p>Feels Like: {weather.main.feels_like}°C</p>
@@ -46,6 +46,16 @@ function RecentSearches({recentSearches, handleRecentSearch}) {
       </ul>
     </div>
   )
+}
+
+function WeatherMap({ latitude, longtitude}) {
+  const mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&z=10&output=embed`;
+
+  return (
+    <div className="map-container">
+      <iframe title="Map" width="100%" height="300" frameborder="0" src={mapUrl}></iframe>
+    </div>
+  );
 }
 
 function App() {
@@ -124,7 +134,12 @@ function App() {
           />
         )}
 
-        {weather && weather.main && <WeatherResult weather={weather} />}
+        {weather && weather.main && (
+          <>
+            <WeatherResult weather={weather} />
+            <WeatherMap latitude={weather.coord.lat} longtitude={weather.coord.lon}/>
+          </>
+        )}
       </header>
     </div>
   );
