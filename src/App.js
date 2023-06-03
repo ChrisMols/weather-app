@@ -81,7 +81,7 @@ function App() {
     if (event.key === 'Enter') {
       handleSearch();
     }
-  }
+  };
 
   const handleSearch = () => {
     if (query) {
@@ -92,6 +92,7 @@ function App() {
       const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
       setRecentSearches(updatedRecentSearches);
       Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7 });
+      }
       
       setQuery(''); // Clear the search input field
       fetchWeatherData(query); // Fetch weather data immediately after updating recent searches and query
@@ -130,6 +131,7 @@ function App() {
   };
 
 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -160,6 +162,3 @@ function App() {
 }
 
 export default App;
-
-
-
