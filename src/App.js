@@ -40,7 +40,7 @@ function RecentSearches({recentSearches, handleRecentSearch}) {
           .map((searchQuery, index) => (
             <li className="app-recent-search-li" key={index}>
               <button className="App-recent-search-button"
-              onClick={() => handeRecentSearch(searchQuery)}
+              onClick={() => handleRecentSearch(searchQuery)}
               >
                 {searchQuery}
               </button>
