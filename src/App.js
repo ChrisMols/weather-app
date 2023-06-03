@@ -35,14 +35,17 @@ function RecentSearches({recentSearches, handleRecentSearch}) {
     <div className="recent-searches-container">
       <h2>Recent Searches:</h2>
       <ul>
-        {recentSearches.map((searchQuery, index) => (
-          <li className="app-recent-search-li" key={index}>
-            <button className="App-recent-search-button" 
-            onClick={() => handleRecentSearch(searchQuery)}>
-              {searchQuery}
-            </button>
-          </li>
-        ))}
+        {recentSearches
+          .filter((searchQuery, index) => index === recentSearches.indexOf(searchQuery))
+          .map((searchQuery, index) => (
+            <li className="app-recent-search-li" key={index}>
+              <button className="App-recent-search-button"
+              onClick={() => handeRecentSearch(searchQuery)}
+              >
+                {searchQuery}
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   )
