@@ -92,7 +92,12 @@ function App() {
       const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
       setRecentSearches(updatedRecentSearches);
       Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7 });
-      } 
+      } else {
+        const filteredSearches = recentSearches.filter((searchQuery) => searchQuery !== query);
+        const updatedRecentSearches = [query, ...filteredSearches.slice(0, 4)];
+        setRecentSearches(updatedRecentSearches);
+        Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7});
+      }
       
       setQuery(''); // Clear the search input field
       fetchWeatherData(query); // Fetch weather data immediately after updating recent searches and query
