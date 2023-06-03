@@ -1,3 +1,20 @@
+Projekt Väder app
+
+Vi har byggt en väder app med react.
+
+Användaren kan sök efter en stad och se temperatur och väder.
+Vi har även implementerat en karta så att användaren ser vilken stads temperatur som visas om där finns två städer med samma namn.
+
+Vi valde react framför Vue och Angular för vi är bekanta med det sen tidigare.
+Det fanns en väldigt stor community med mycket dokumentation vid problem.
+Känt för att bygga gränssnitt.
+
+Install Requirements.
+In order to run our app you might need run the following command in the terminal.
+npm install react-scripts --save
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
