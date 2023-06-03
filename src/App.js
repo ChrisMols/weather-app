@@ -82,6 +82,10 @@ function App() {
 
   const handleSearch = () => {
     if (query) {
+
+      const isAlreadySearched = recentSearches.includes(query);
+      if (!isAlreadySearched) {
+
       const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
       setRecentSearches(updatedRecentSearches);
       Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7 });
@@ -100,8 +104,12 @@ function App() {
         setWeather(data);
         setQuery('');
 
+        const isAlreadySearched = recentSearches.includes(searchQuery);
+        if (!isAlreadySearched) {
+
         const updatedSearches = [searchQuery, ...recentSearches.slice(0, 4)];
         setRecentSearches(updatedSearches);
+        }
       })
       .catch((error) => {
         console.log('Error fetching weather data:', error);
@@ -111,8 +119,11 @@ function App() {
   };
 
   const handleRecentSearch = (searchQuery) => {
+    const isAlreadySearched = recentSearches.includes(searchQuery);
+    if (!isAlreadySearched) {
     setQuery(searchQuery);
     fetchWeatherData(searchQuery);
+    }
   };
 
 
