@@ -92,7 +92,7 @@ function App() {
       const updatedRecentSearches = [query, ...recentSearches.slice(0, 4)];
       setRecentSearches(updatedRecentSearches);
       Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7 });
-      }
+      } 
       
       setQuery(''); // Clear the search input field
       fetchWeatherData(query); // Fetch weather data immediately after updating recent searches and query
@@ -126,6 +126,11 @@ function App() {
     const isAlreadySearched = recentSearches.includes(searchQuery);
     if (!isAlreadySearched) {
       const updatedRecentSearches = [searchQuery, ...recentSearches.slice(0, 4)];
+      Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7});
+    } else {
+      const filteredSearches = recentSearches.filter((query) => query !== searchQuery);
+      const updatedRecentSearches = [searchQuery, ...filteredSearches.slice(0, 4)];
+      setRecentSearches(updatedRecentSearches);
       Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7});
     }
       setQuery(searchQuery);
