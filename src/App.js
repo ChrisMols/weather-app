@@ -125,9 +125,12 @@ function App() {
   const handleRecentSearch = (searchQuery) => {
     const isAlreadySearched = recentSearches.includes(searchQuery);
     if (!isAlreadySearched) {
-    setQuery(searchQuery);
-    fetchWeatherData(searchQuery);
+      const updatedRecentSearches = [searchQuery, ...recentSearches.slice(0, 4)];
+      Cookies.set('recentSearches', JSON.stringify(updatedRecentSearches), { expires: 7});
     }
+      setQuery(searchQuery);
+      fetchWeatherData(searchQuery);
+    
   };
 
 
