@@ -49,7 +49,7 @@ function RecentSearches({recentSearches, handleRecentSearch}) {
 }
 
 function WeatherMap({ latitude, longtitude}) {
-  const mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&z=10&output=embed`;
+  const mapUrl = `https://www.google.com/maps?q=${latitude},${longtitude}&z=10&output=embed`;
 
   return (
     <div className="map-container">
